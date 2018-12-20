@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { NsedataService } from './nsedata.service';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,7 @@ import { environment } from '../environments/environment';
     AppRoutingModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
-  providers: [],
+  providers: [NsedataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
