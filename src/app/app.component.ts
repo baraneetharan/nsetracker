@@ -8,8 +8,7 @@ import { Observable, interval } from 'rxjs';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'nsetracker';
-
+  name = 'nsetracker';
   restItems = [];
   filteredStocks;
   Math: any;
