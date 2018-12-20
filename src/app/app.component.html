@@ -1,4 +1,4 @@
-<hello name="{{ name }}"></hello>
+<!-- <hello name="{{ name }}"></hello> -->
 <!-- <button (click)="filterscrips()">Filter Scrips</button> -->
 
 <!-- {{filteredStocks|json}} -->
@@ -23,7 +23,7 @@
         <td>{{stock.open}}</td>
         <td>{{stock.high}}</td>
         <td>{{stock.low}}</td>
-        <td>{{Math.floor((Math.random()*6)+1)}}</td>
+        <td>{{stock.ltp}}</td>
         <td>{{stock.ptsC}}</td>
         <td>
           <div *ngIf="stock.ptsC>0; else templateName">

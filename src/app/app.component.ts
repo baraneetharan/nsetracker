@@ -32,7 +32,7 @@ export class AppComponent {
   filterscrips() {
     let myStocks = ["BHARTIARTL", "IOC", "INDUSINDBK", "ASIANPAINT", "ULTRACEMCO"];
 
-    this.nsedataService.getData().subscribe(data => this.restItems = data.data);
+    this.nsedataService.getData().subscribe(data => this.restItems = data["data"]);
     console.log(this.restItems);
 
 
