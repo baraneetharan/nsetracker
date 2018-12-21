@@ -26,7 +26,7 @@ export class AppComponent {
     //   .subscribe(
     //     data => this.filterscrips(),
     //     error => console.error(error))
-this.filterscrips();
+// this.filterscrips();
 
   }
 
