@@ -1,39 +1,30 @@
-<!-- <hello name="{{ name }}"></hello> -->
-<!-- <button (click)="filterscrips()">Filter Scrips</button> -->
-
-<!-- {{filteredStocks|json}} -->
-
-<hr>
-<div class="container">
-  <table class="table table-bordered">
-    <thead>
-      <tr>
-        <td>Symbol</td>
-        <td>open</td>
-        <td>High</td>
-        <td>Low</td>
-        <td>ltp</td>
-        <td>ptsC</td>
-        <td>Status</td>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let stock of filteredStocks">
-        <td>{{stock.symbol}}</td>
-        <td>{{stock.open}}</td>
-        <td>{{stock.high}}</td>
-        <td>{{stock.low}}</td>
-        <td>{{stock.ltP}}</td>
-        <td>{{stock.ptsC}}</td>
-        <td>
-          <div *ngIf="stock.ptsC>0; else templateName">
-            <i class="fa fa-caret-up" style="font-size:50px;color:green"></i>
-          </div>
-          <ng-template #templateName>
-            <i class="fa fa-caret-down" style="font-size:50px;color:red"></i>
-          </ng-template>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+<div>
+  <mat-table [dataSource]="restItems">
+    <ng-container matColumnDef="symbol">
+      <mat-header-cell *matHeaderCellDef> symbol </mat-header-cell>
+      <mat-cell *matCellDef="let scrip"> {{scrip.symbol}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="open">
+      <mat-header-cell *matHeaderCellDef> open </mat-header-cell>
+      <mat-cell *matCellDef="let scrip"> {{scrip.open}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="high">
+      <mat-header-cell *matHeaderCellDef> high </mat-header-cell>
+      <mat-cell *matCellDef="let scrip"> {{scrip.high}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="low">
+      <mat-header-cell *matHeaderCellDef> low </mat-header-cell>
+      <mat-cell *matCellDef="let scrip"> {{scrip.low}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="ltP">
+      <mat-header-cell *matHeaderCellDef> ltP </mat-header-cell>
+      <mat-cell *matCellDef="let scrip"> {{scrip.ltP}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="ptsC">
+      <mat-header-cell *matHeaderCellDef> ptsC </mat-header-cell>
+      <mat-cell *matCellDef="let scrip"> {{scrip.ptsC}} </mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
 </div>

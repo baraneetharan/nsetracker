@@ -12,11 +12,13 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "~7.1.0",
+    "@angular/animations": "^7.1.4",
+    "@angular/cdk": "^7.2.0",
     "@angular/common": "~7.1.0",
     "@angular/compiler": "~7.1.0",
     "@angular/core": "~7.1.0",
     "@angular/forms": "~7.1.0",
+    "@angular/material": "^7.2.0",
     "@angular/platform-browser": "~7.1.0",
     "@angular/platform-browser-dynamic": "~7.1.0",
     "@angular/pwa": "^0.11.4",
@@ -50,6 +52,6 @@
   },
   "engines": {
     "node": "v8.11.3",
-  "npm": "5.6.0"
+    "npm": "5.6.0"
   }
 }

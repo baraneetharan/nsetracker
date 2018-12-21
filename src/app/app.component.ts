@@ -12,6 +12,7 @@ export class AppComponent {
   restItems = [];
   filteredStocks;
   Math: any;
+  displayedColumns = ['symbol','open','high','low','ltP','ptsC'];
 
   constructor(private nsedataService: NsedataService) {
     this.Math = Math;
@@ -21,16 +22,23 @@ export class AppComponent {
     //  this.nsedataService.getData().subscribe(data => this.restItems = data.data);
     // console.log(this.restItems);
 
+    // interval(3000)
+    //   .subscribe(
+    //     data => this.filterscrips(),
+    //     error => console.error(error))
+this.filterscrips();
+
+  }
+
+  startStreaming(){
     interval(3000)
       .subscribe(
         data => this.filterscrips(),
         error => console.error(error))
-
-
   }
 
   filterscrips() {
-    let myStocks = ["BHARTIARTL", "IOC", "INDUSINDBK", "ASIANPAINT", "ULTRACEMCO"];
+    let myStocks = ["TATAMOTORS","BHARTIARTL", "IOC", "INDUSINDBK", "ASIANPAINT", "ULTRACEMCO"];
 
     this.nsedataService.getData().subscribe(data => this.restItems = data["data"]);
     console.log(this.restItems);
