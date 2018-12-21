@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,OnInit, OnDestroy } from '@angular/core';
 import { NsedataService } from './nsedata.service';
 import { Observable, interval } from 'rxjs';
 
@@ -7,12 +7,13 @@ import { Observable, interval } from 'rxjs';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit, OnDestroy {
   name = 'nsetracker';
   restItems = [];
   filteredStocks;
   Math: any;
   displayedColumns = ['symbol','open','high','low','ltP','ptsC'];
+  private subscription;
 
   constructor(private nsedataService: NsedataService) {
     this.Math = Math;
@@ -30,11 +31,25 @@ export class AppComponent {
 
   }
 
+  ngOnDestroy() {
+    // this.subscription.unsubscribe();
+}
+
+  stopStreaming() {
+    // this.ngOnDestroy();
+    this.subscription.unsubscribe();
+}
+
   startStreaming(){
-    interval(3000)
-      .subscribe(
-        data => this.filterscrips(),
-        error => console.error(error))
+    var observable = interval(1000);
+    this.subscription = observable.subscribe(
+      data => this.filterscrips(),
+      error => console.error(error));
+
+    // interval(3000)
+    //   .subscribe(
+    //     data => this.filterscrips(),
+    //     error => console.error(error))
   }
 
   filterscrips() {
