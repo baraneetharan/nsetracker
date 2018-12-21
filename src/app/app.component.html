@@ -2,7 +2,12 @@
 <button (click)="stopStreaming()">stop Streaming</button>
 <hr>
 <div>
-  <mat-table [dataSource]="restItems">
+    <mat-card *ngFor="let item of restItems">
+        <mat-card-header>
+        <mat-card-title>{{item.symbol}}</mat-card-title>
+        </mat-card-header>
+    </mat-card>
+  <!-- <mat-table [dataSource]="restItems">
     <ng-container matColumnDef="symbol">
       <mat-header-cell *matHeaderCellDef> symbol </mat-header-cell>
       <mat-cell *matCellDef="let scrip"> {{scrip.symbol}} </mat-cell>
@@ -29,5 +34,5 @@
     </ng-container>
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
     <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-  </mat-table>
+  </mat-table> -->
 </div>
